@@ -1,0 +1,22 @@
+<p>Dear <%= @reservation.guest.name %>,</p>
+</br>
+<div>
+  <% if @update %>
+      <p> Old details are</p>
+      <ul>
+        <li>Reservation Time: <%= @reservation.paper_trail.previous_version.reservation_time %></li>
+        <li>Table: <%= @reservation.paper_trail.previous_version.guest_count %></li>
+      </ul>
+      </div>
+  <% end %>
+  Your reservation details <%=@update ? 'has been updated ': 'are '%>as follows:
+  <ul>
+    <li>Restaurant: <%= @reservation.restaurant.name %></li>
+    <li>Reservation Time: <%= @reservation.reservation_time %></li>
+    <li>Table: <%= @reservation.table.name %></li>
+    <li>Table: <%= @reservation.guest_count %></li>
+  </ul>
+</div>
+
+<p>Best Regards,</p>
+<p><%= @reservation.restaurant.name %></p>
